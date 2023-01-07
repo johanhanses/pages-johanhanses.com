@@ -2,6 +2,9 @@ import { GetServerSideProps } from 'next'
 import { getCsrfToken, signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { FormEvent, useEffect, useState } from 'react'
+import ErrorMessage from '../../components/ErrorMessage'
+import Button from '../../components/Form/Button'
+import Input from '../../components/Form/Input'
 import Layout from '../../components/Layout'
 
 type SignInProps = {
@@ -47,31 +50,28 @@ export default function Login({ csrfToken }: SignInProps) {
           type="hidden"
           defaultValue={csrfToken}
         />
-        <input
-          // required
+        <Input
+          required
           name="username"
           type="text"
+          placeholder="Username"
           onChange={(e) => setValues({ ...values, username: e.target.value })}
         />
-        <input
-          // required
+        <Input
+          required
           name="password"
           type="password"
+          placeholder="Password"
           onChange={(e) => setValues({ ...values, password: e.target.value })}
         />
-        <button
+        <Button
           type="submit"
           title="Login"
-          className="mx-auto block"
         >
           Login
-        </button>
+        </Button>
       </form>
-      {error && (
-        <p className="mt-6 text-center text-sm text-white bg-red-400 sm:w-1/2 md:w-1/3 mx-auto rounded-md py-1">
-          {error}
-        </p>
-      )}
+      <ErrorMessage error={error} />
     </Layout>
   )
 }
