@@ -56,14 +56,13 @@ export default function Login({ csrfToken }: SignInProps) {
         <Input
           required
           name="username"
-          type="text"
           placeholder="Username"
           onChange={(e) => setValues({ ...values, username: e.target.value })}
         />
         <Input
           required
+          toggleVisibility
           name="password"
-          type="password"
           placeholder="Password"
           onChange={(e) => setValues({ ...values, password: e.target.value })}
         />
