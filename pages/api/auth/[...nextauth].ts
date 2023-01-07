@@ -29,7 +29,7 @@ export default NextAuth({
           return {
             id: user.id,
             username: user.username
-          }
+          } as any
         }
 
         return null
