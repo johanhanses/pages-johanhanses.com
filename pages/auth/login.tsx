@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 import { getCsrfToken, signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import Layout from '../../components/Layout'
 
 type SignInProps = {
@@ -10,11 +10,16 @@ type SignInProps = {
 
 export default function Login({ csrfToken }: SignInProps) {
   const router = useRouter()
+  const { data, status } = useSession()
   const [values, setValues] = useState({
     username: '',
     password: ''
   })
   const [error, setError] = useState('')
+
+  useEffect(() => {
+    if (status === 'authenticated') router.push('/secret')
+  }, [router, status])
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
