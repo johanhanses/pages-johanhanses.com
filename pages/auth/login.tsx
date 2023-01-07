@@ -13,7 +13,7 @@ type SignInProps = {
 
 export default function Login({ csrfToken }: SignInProps) {
   const router = useRouter()
-  const { data, status } = useSession()
+  const { status } = useSession()
   const [values, setValues] = useState({
     username: '',
     password: ''
@@ -28,7 +28,10 @@ export default function Login({ csrfToken }: SignInProps) {
     e.preventDefault()
 
     try {
-      const response = await signIn('credentials', { ...values, redirect: false })
+      const response = await signIn('credentials', {
+        ...values,
+        redirect: false
+      })
       if (response && response.ok) return router.push('/secret')
       setError('Wrong credentials...')
     } catch (error) {

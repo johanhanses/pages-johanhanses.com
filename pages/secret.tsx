@@ -8,7 +8,7 @@ export default function Secret() {
         <title>Johan Hanses | Secret</title>
       </Head>
       <Layout>
-        <div className="">
+        <div>
           <h1 className="text-xl">This is a secret for everybody</h1>
         </div>
       </Layout>

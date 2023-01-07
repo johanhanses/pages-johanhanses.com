@@ -23,9 +23,9 @@ export default function Layout({ children }: { children: ReactNode }) {
           href="/favicon.ico"
         />
       </Head>
-      <div className={`${openSans.variable} ${playfair.variable} p-6 font-openSans`}>
+      <div className={`${openSans.variable} ${playfair.variable} p-6 font-openSans max-w-5xl mx-auto`}>
         <Header />
-        <main className="max-w-5xl mx-auto py-16">{children}</main>
+        <main className="mx-auto py-16">{children}</main>
       </div>
     </>
   )

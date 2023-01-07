@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.13",
     "@next/font": "13.0.7",
     "@prisma/client": "^4.8.1",
     "@types/bcrypt": "^5.0.0",
@@ -21,6 +22,7 @@
     "next": "13.0.7",
     "next-auth": "^4.18.6",
     "next-themes": "^0.2.1",
+    "prettier-plugin-tailwindcss": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.4"
